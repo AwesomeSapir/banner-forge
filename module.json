@@ -1,0 +1,30 @@
+{
+  "title": "Banner Forge",
+  "description": "A module for displaying custom banners and titles.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Sapreme",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "scripts/settings.js", 
+    "scripts/BannerForgeDialog.js", 
+    "main.js"
+  ],
+  "styles": [
+    "styles/banner.css",
+    "styles/animations.css",
+    "styles/form.css"
+  ],
+  "manifest": "modules/banner-forge/module.json",
+  "download": "modules/banner-forge.zip",
+  "id": "banner-forge",
+  "compatibility": {
+    "minimum": "0.8.6",
+    "verified": "12",
+    "maximum": "12"
+  },
+  "socket": "true"
+}

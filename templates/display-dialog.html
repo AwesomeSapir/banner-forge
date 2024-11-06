@@ -1,0 +1,122 @@
+<form>
+  <!-- Title with icon -->
+  <div class="form-group">
+    <label><i class="fas fa-heading"></i> Title</label>
+    <input type="text" name="title" placeholder="Enter title text here..." value="{{title}}" required>
+  </div>
+
+  <!-- Subtitle with icon -->
+  <div class="form-group">
+    <label><i class="fas fa-subscript"></i> Subtitle</label>
+    <input type="text" name="subtitle" placeholder="Enter subtitle text here..." value="{{subtitle}}">
+  </div>
+
+  <!-- Duration with icon -->
+  <div class="form-group">
+    <label><i class="fas fa-hourglass-half"></i> Duration (seconds)</label>
+    <div class="duration-container">
+      <input type="range" name="duration" min="5" max="60" step="5" value="{{duration}}">
+      <output name="durationOutput">{{duration}}s</output>
+    </div>
+  </div>
+
+  <!-- Image Picker with icon -->
+  <div class="form-group">
+    <label><i class="fas fa-image"></i> Image</label>
+    <div class="file-picker-container">
+      <input type="text" name="imagePath" placeholder="Enter or select an image..." value="{{imagePath}}">
+      <button type="button" name="filePickerButton" class="icon-button">
+        <i class="fas fa-folder-open"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Advanced Toggle -->
+  <div class="form-group">
+    <button type="button" name="toggleAdvanced" class="toggle-advanced"><i class="fas fa-cog"></i>More Options</button>
+  </div>
+
+  <!-- Advanced Options Section -->
+  <div class="advanced-options" style="display: none;">
+
+    <div class="form-section">
+      <h3><i class="fas fa-font"></i> Text</h3>
+
+      <!-- Title Color with icon -->
+      <div class="form-group">
+        <label><i class="fas fa-palette"></i> Title Color</label>
+        <div class="color-picker-container">
+          <input type="text" name="titleColor" value="{{titleColor}}" maxlength="7">
+          <input type="color" name="titleColorPicker" value="{{titleColor}}">
+        </div>
+      </div>
+
+      <!-- Subtitle Color with icon -->
+      <div class="form-group">
+        <label><i class="fas fa-paint-brush"></i> Subtitle Color</label>
+        <div class="color-picker-container">
+          <input type="text" name="subtitleColor" value="{{subtitleColor}}" maxlength="7">
+          <input type="color" name="subtitleColorPicker" value="{{subtitleColor}}">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3><i class="fas fa-fill-drip"></i> Background</h3>
+
+      <!-- Background Color with icon -->
+      <div class="form-group">
+        <label><i class="fas fa-fill-drip"></i> Background Color</label>
+        <div class="color-picker-container">
+          <input type="text" name="backgroundColor" value="{{backgroundColor}}" maxlength="7">
+          <input type="color" name="backgroundColorPicker" value="{{backgroundColor}}">
+        </div>
+      </div>
+
+      <!-- Background Opacity with icon -->
+      <div class="form-group">
+        <label><i class="fas fa-adjust"></i> Background Opacity</label>
+        <div class="duration-container">
+          <input type="range" name="backgroundOpacity" min="0" max="1" step="0.1" value="{{backgroundOpacity}}">
+          <output name="backgroundOpacityOutput">{{backgroundOpacity}}</output>
+        </div>
+      </div>
+
+      <!-- Corner Radius with icon -->
+      <div class="form-group">
+        <label><i class="fas fa-border-style"></i> Corner Radius</label>
+        <div class="duration-container">
+          <input type="range" name="cornerRadius" min="0" max="512" step="1" value="{{cornerRadius}}">
+          <output name="cornerRadiusOutput">{{cornerRadius}}px</output>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3><i class="fas fa-volume-up"></i> Sound Settings</h3>
+
+      <!-- Sound Picker with icon -->
+      <div class="form-group">
+        <label><i class="fas fa-music"></i> Sound Effect</label>
+        <div class="file-picker-container">
+          <input type="text" name="soundPath" placeholder="Enter or select a sound file..." value="{{soundPath}}">
+          <button type="button" name="soundPickerButton" class="icon-button">
+            <i class="fas fa-folder-open"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sound Volume with icon -->
+      <div class="form-group">
+        <label><i class="fas fa-volume-up"></i> Sound Volume</label>
+        <div class="duration-container">
+          <input type="range" name="soundVolume" min="0.0" max="1.0" step="0.1" value="{{soundVolume}}">
+          <output name="soundVolumeOutput">{{soundVolume}}</output>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit Button with icon -->
+  <button type="submit"><i class="fas fa-play"></i> Display Title</button>
+</form>

@@ -1,0 +1,123 @@
+form .form-group {
+    margin: 0.5em;
+  }
+  
+  /* Ensure all form fields have the same width */
+  form .form-group input[type="text"],
+  form .form-group .duration-container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Duration container styling */
+  .duration-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Slider styling */
+  .duration-container input[type="range"] {
+    flex: 1;
+    /* Takes up available space */
+    margin-right: 0.5em;
+    /* Space between slider and output */
+  }
+  
+  /* Output styling */
+  .duration-container output {
+    min-width: 30px;
+    /* Set a minimum width to keep it aligned */
+    text-align: center;
+    font-size: 0.9em;
+    color: #444;
+  }
+  
+  /* Align image path and browse button inline */
+  .file-picker-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .file-picker-container input[type="text"] {
+    flex: 1;
+    /* Allow text field to take up remaining space */
+    box-sizing: border-box;
+  }
+  
+  .form-section {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .form-section h3 {
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #444;
+  }
+  
+  .form-section h3 i {
+    margin-right: 0.3em;
+    color: #666;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0;
+    /* Remove extra padding */
+    width: 1.5em;
+    /* Set button width to fit the icon */
+    height: 1.5em;
+    /* Set button height to fit the icon */
+    margin-left: 0.5em;
+    /* Space between input and button */
+    color: #444;
+  }
+  
+  .icon-button:hover {
+    color: #000;
+  }
+  
+  /* Advanced button styling */
+  .toggle-advanced {
+    background: none;
+    border: none;
+    color: #444;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    margin-top: 0.5em;
+  }
+  
+  /* Style for the advanced options section */
+  .advanced-options {
+    margin-top: 1em;
+  }
+  
+  /* Color picker container for inline layout */
+  .color-picker-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Square color picker */
+  .color-picker {
+    width: 2em;
+    height: 2em;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 0.5em;
+  }
+  
+  /* Hex input styling */
+  .hex-input {
+    width: 5em;
+    text-align: center;
+    box-sizing: border-box;
+  }
