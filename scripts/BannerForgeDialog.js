@@ -15,7 +15,15 @@ export class BannerForgeDialog extends FormApplication {
     });
   }
 
-  getData() {
+  async getData() {
+    const presetsPath = game.settings.get("banner-forge", "presetsFilePath");
+    try {
+      const response = await fetch(presetsPath);
+      this.presets = await response.json();
+    } catch (error) {
+      console.error(`Banner Forge | Error loading presets from ${presetsPath}:`, error);
+    }
+
     return {
       title: "",
       subtitle: "",
@@ -27,12 +35,42 @@ export class BannerForgeDialog extends FormApplication {
       imagePath: "",
       backgroundColor: game.settings.get("banner-forge", "defaultBackgroundColor"),
       backgroundOpacity: game.settings.get("banner-forge", "defaultBackgroundOpacity"),
-      cornerRadius: game.settings.get("banner-forge", "defaultCornerRadius")
+      cornerRadius: game.settings.get("banner-forge", "defaultCornerRadius"),
+      presets: this.presets
     };
+  }
+
+  _fillForm(html, data) {
+    // Fill form fields with data provided, only if the data has a defined value
+    if (data.title !== undefined) html.find("input[name='title']").val(data.title).trigger('input');
+    if (data.subtitle !== undefined) html.find("input[name='subtitle']").val(data.subtitle).trigger('input');
+    if (data.duration !== undefined) html.find("input[name='duration']").val(data.duration).trigger('input');
+    if (data.titleColor !== undefined) html.find("input[name='titleColor']").val(data.titleColor).trigger('input');
+    if (data.subtitleColor !== undefined) html.find("input[name='subtitleColor']").val(data.subtitleColor).trigger('input');
+    if (data.backgroundColor !== undefined) html.find("input[name='backgroundColor']").val(data.backgroundColor).trigger('input');
+    if (data.backgroundOpacity !== undefined) html.find("input[name='backgroundOpacity']").val(data.backgroundOpacity).trigger('input');
+    if (data.cornerRadius !== undefined) html.find("input[name='cornerRadius']").val(data.cornerRadius).trigger('input');
+    if (data.soundPath !== undefined) html.find("input[name='soundPath']").val(data.soundPath).trigger('input');
+    if (data.soundVolume !== undefined) html.find("input[name='soundVolume']").val(data.soundVolume).trigger('input');
+    if (data.imagePath !== undefined) html.find("input[name='imagePath']").val(data.imagePath).trigger('input');
+    this.setPosition();
   }
 
   activateListeners(html) {
     super.activateListeners(html);
+
+    const presetSelector = html.find("select[name='presetSelector']");
+    presetSelector.on("change", (event) => {
+      const selectedPresetName = event.target.value;
+      if (selectedPresetName === "custom") {
+        this._fillForm(html, this.getData()); // Use default values
+      } else {
+        const selectedPreset = this.presets.find(preset => preset.name === selectedPresetName);
+        if (selectedPreset) {
+          this._fillForm(html, selectedPreset); // Use preset data
+        }
+      }
+    });
 
     const durationInput = html.find("input[name='duration']");
     const durationOutput = html.find("output[name='durationOutput']");

@@ -31,6 +31,16 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <label><i class="fas fa-list"></i> Select Preset</label>
+    <select name="presetSelector">
+      <option value="custom">Custom</option>
+      {{#each presets}}
+        <option value="{{this.name}}">{{this.displayName}}</option>
+      {{/each}}
+    </select>
+  </div>
+
   <!-- Advanced Toggle -->
   <div class="form-group">
     <button type="button" name="toggleAdvanced" class="toggle-advanced"><i class="fas fa-cog"></i>More Options</button>

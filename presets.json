@@ -1,0 +1,45 @@
+[
+    {
+        "name": "default",
+        "displayName": "Default",
+        "title": "",
+        "subtitle": "",
+        "duration": 5,
+        "titleColor": "#ffffff",
+        "subtitleColor": "#cccccc",
+        "backgroundColor": "#000000",
+        "backgroundOpacity": 0.8,
+        "cornerRadius": 16,
+        "soundPath": "",
+        "soundVolume": 0.8,
+        "imagePath": ""
+    },
+    {
+        "name": "quest",
+        "displayName": "Quest",
+        "subtitle": "Mission",
+        "titleColor": "#ffffff",
+        "subtitleColor": "#ffbb00",
+        "backgroundColor": "#000000",
+        "soundPath": "my-dnd/assets/sounds/fx/skyrim%20quest%20update.mp3"
+    },
+    {
+        "name": "location",
+        "displayName": "Location",
+        "subtitle": "Location",
+        "titleColor": "#ffffff",
+        "subtitleColor": "#6200EA",
+        "backgroundColor": "#000000",
+        "soundPath": "my-dnd/assets/sounds/fx/skyrim%20location%20unlocked.mp3"
+    },
+    {
+        "name": "death",
+        "displayName": "Death",
+        "title": "Died 💀",
+        "subtitle": "Parted from life, but bound by memory.",
+        "duration": 30,
+        "titleColor": "#c0392b",
+        "subtitleColor": "#825955",
+        "soundPath": "my-dnd/assets/sounds/fx/kyrie-death-note.mp3"
+    }
+]

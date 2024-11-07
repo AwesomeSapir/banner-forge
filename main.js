@@ -31,7 +31,7 @@ Hooks.once('ready', function () {
   window.bannerSocket.register("displayBanner", displayBanner);
 
   //TODO: TESTING
-  //new BannerForgeDialog().render(true);
+  new BannerForgeDialog().render(true);
 });
 
 // Register the button in the Journal Notes layer

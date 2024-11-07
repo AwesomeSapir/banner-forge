@@ -1,6 +1,18 @@
 export function registerSettings() {
   console.log("Banner Forge | Registering module settings...");
 
+  // Register Presets File Location setting
+  game.settings.register("banner-forge", "presetsFilePath", {
+    name: "Presets File Location",
+    hint: "Specify the path to the JSON file containing banner presets.",
+    scope: "world",
+    config: true,
+    type: String,
+    default: "modules/banner-forge/presets/presets.json", // Default path to the presets file
+    filePicker: true, // Allows file browsing in Foundry
+    onChange: value => console.log(`Banner Forge | Presets File Location set to ${value}`)
+  });
+
   // Register Default Title Color setting
   game.settings.register("banner-forge", "defaultTitleColor", {
     name: "Default Title Color",
