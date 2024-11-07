@@ -24,6 +24,15 @@
         "soundPath": "my-dnd/assets/sounds/fx/skyrim%20quest%20update.mp3"
     },
     {
+        "name": "quest-complete",
+        "displayName": "Quest Complete",
+        "subtitle": "Mission Accomplished 🎉",
+        "titleColor": "#f39c12",
+        "subtitleColor": "#E65100",
+        "backgroundColor": "#000000",
+        "soundPath": "my-dnd/assets/sounds/fx/witcher%20quest%20complete.mp3"
+    },
+    {
         "name": "location",
         "displayName": "Location",
         "subtitle": "Location",

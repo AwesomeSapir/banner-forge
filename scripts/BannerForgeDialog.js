@@ -148,8 +148,61 @@ export class BannerForgeDialog extends FormApplication {
       cornerRadiusOutput.text(`${event.target.value}px`);
     });
 
+    html.find("button[name='saveAsMacro']").on("click", () => {
+      this._createMacro();
+    });
+
     // Bind submit button to call displayTitle function
     html.find("button[type='submit']").click(this._onSubmit.bind(this));
+  }
+
+  async _createMacro() {
+    // Collect current form data
+    const formData = this.element[0].querySelector("form");
+    const data = {
+      title: formData.title.value,
+      subtitle: formData.subtitle.value,
+      duration: parseInt(formData.duration.value),
+      titleColor: formData.titleColor.value,
+      subtitleColor: formData.subtitleColor.value,
+      backgroundColor: formData.backgroundColor.value,
+      backgroundOpacity: parseFloat(formData.backgroundOpacity.value),
+      cornerRadius: parseInt(formData.cornerRadius.value),
+      soundPath: formData.soundPath.value,
+      soundVolume: parseFloat(formData.soundVolume.value),
+      imagePath: formData.imagePath.value
+    };
+
+    // Create a macro command to call displayBanner with the collected data
+    const macroCommand = `
+      window.bannerSocket.executeForEveryone("displayBanner", ${JSON.stringify(data)});
+    `;
+
+    // Specify the folder name for the macro
+    const folderName = "Banner Forge Macros";
+
+    // Check if the folder already exists
+    let folder = game.folders.find(f => f.name === folderName && f.type === "Macro");
+    if (!folder) {
+      // Create the folder if it doesn't exist
+      folder = await Folder.create({
+        name: folderName,
+        type: "Macro",
+        parent: null
+      });
+    }
+
+    // Create and save the macro
+    Macro.create({
+      name: `Banner: ${data.title || 'Untitled'}`,
+      type: "script",
+      img: "icons/sundries/flags/banner-flag-white.webp", // You can use a custom icon
+      command: macroCommand,
+      folder: folder.id,
+      flags: { "banner-forge": true }
+    });
+
+    ui.notifications.info("Banner Forge | Macro created successfully.");
   }
 
   async _onSubmit(event) {

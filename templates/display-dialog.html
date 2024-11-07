@@ -36,7 +36,7 @@
     <select name="presetSelector">
       <option value="custom">Custom</option>
       {{#each presets}}
-        <option value="{{this.name}}">{{this.displayName}}</option>
+      <option value="{{this.name}}">{{this.displayName}}</option>
       {{/each}}
     </select>
   </div>
@@ -125,6 +125,8 @@
         </div>
       </div>
     </div>
+
+    <button type="button" name="saveAsMacro"><i class="fas fa-save"></i> Save as Macro</button>
   </div>
 
   <!-- Submit Button with icon -->
